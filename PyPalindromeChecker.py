@@ -1,8 +1,9 @@
-def is_palindrome(s):
+def is_palindrome(input_text):
 
     # Удаляем все непробельные символы и приводим к нижнему регистру
 
-    cleaned = ''.join(char.lower() for char in s if char.isalnum())
+    cleaned = ''.join(char.lower() for char in input_text if char.isalnum())
+    print(cleaned)
 
     # Проверяем, является ли строка палиндромом
 

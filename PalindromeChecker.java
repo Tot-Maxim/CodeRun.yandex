@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 public class PalindromeChecker {
 
@@ -6,7 +6,6 @@ public class PalindromeChecker {
         // Удаляем все непробельные символы и приводим к нижнему регистру
         String cleaned = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
         
-        // Проверяем, является ли строка палиндромом
         int left = 0;
         int right = cleaned.length() - 1;
         
@@ -22,54 +21,20 @@ public class PalindromeChecker {
     }
 
     public static void main(String[] args) {
-        // Тесты
-        runTests();
-    }
+        Scanner scanner = new Scanner(System.in);
 
-    public static void runTests() {
-        // Тестовые случаи
-        String[] testCases = {
-            "A man, a plan, a canal, Panama",
-            "racecar",
-            "No lemon, no melon",
-            "Was it a car or a cat I saw?",
-            "Not a palindrome",
-            "12321",
-            "123456",
-            "Able was I, I saw Elba",
-            "Madam, in Eden, I'm Adam",
-            "A Santa at NASA",
-            "No 'x' in Nixon",
-            "Eva, can I see bees in a cave?",
-            "Not a palindrome at all"
-        };
+        while (true) {
+            System.out.println("Введите строку для проверки на палиндром (или 'exit' для выхода): ");
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("exit")) {
+                System.out.println("Выход из программы. Пока!");
+                break;
+            }
 
-        // Ожидаемые результаты
-        boolean[] expectedResults = {
-            true,
-            true,
-            true,
-            true,
-            false,
-            true,
-            false,
-            true,
-            true,
-            true,
-            true,
-            true,
-            false
-        };
-
-        // Запуск тестов
-        for (int i = 0; i < testCases.length; i++) {
-            String testCase = testCases[i];
-            boolean expectedResult = expectedResults[i];
-            boolean result = isPalindrome(testCase);
-            System.out.println("Test case: \"" + testCase + "\"");
-            System.out.println("Expected: " + expectedResult + ", Got: " + result);
-            System.out.println(result == expectedResult ? "PASS" : "FAIL");
-            System.out.println();
+            boolean result = isPalindrome(input);
+            System.out.println("Строка: \"" + input + "\"");
+            System.out.println("Палиндром: " + result);
         }
+        scanner.close(); // Закрываем Scanner после выхода из цикла
     }
 }
