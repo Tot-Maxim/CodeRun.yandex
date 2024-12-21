@@ -7,7 +7,7 @@ import os
 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from tskv_to_json import tskv_to_json
+from tasks.tskv_to_json import tskv_to_json
 
 
 class TestTskvToJson(unittest.TestCase):
