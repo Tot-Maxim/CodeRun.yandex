@@ -27,5 +27,5 @@ jobs:
 
     - name: Run tests
       run: |
-        cd CodeRun.yandex/check_test
+        cd chek_test/
         python3 check_test.py
