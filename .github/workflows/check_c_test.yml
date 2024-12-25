@@ -19,8 +19,7 @@ jobs:
   
     - name: Compile C code
       run: |
-          gcc -o check_tests/check_test_on_c_lang check_tests/check_test_on_c.c -I tasks/ tasks/monotonic_list.c
-          gcc -o check_tests/tmp_check check_tests/temp_test.c -I tasks/ tasks/saper.c
+          gcc -o check_tests/check_test_on_c_lang check_tests/check_test_on_c.c -I tasks/ tasks/monotonic_list.c tasks/saper.c
     - name: Run C tests
       run: |
           cd check_tests
