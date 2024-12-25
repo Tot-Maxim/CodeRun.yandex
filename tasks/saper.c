@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "saper.h"
 
-int main() {
+void process_saper() {
+
     int N, M, K;
     scanf("%d %d %d", &N, &M, &K);
 
@@ -59,5 +61,4 @@ int main() {
         printf("\n");
     }
 
-    return 0;
 }
