@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout code
@@ -21,36 +21,36 @@ jobs:
       run: |
           gcc -o check_tests/check_test_on_c_lang check_tests/check_test_on_c.c -I tasks/ tasks/monotonic_list.c
           gcc -o check_tests/tmp_check check_tests/temp_test.c -I tasks/ tasks/saper.c
-    # - name: Run C tests
-    #   run: |
-    #       cd check_tests
-    #       ./check_test_on_c_lang > output.log
-    #       echo "Output of the C test:"
-    #       cat output.log  # Логируем вывод программы
-    #       # Проверяем вывод
-    #       if ! grep -q "YES" output.log; then
-    #         echo "Test failed: Expected 'YES' in output"
-    #         exit 1
-    #       fi
-    #       if ! grep -q "NO" output.log; then
-    #         echo "Test failed: Expected 'NO' in output"
-    #         exit 1
-    #       fi
-    #       ./tmp_check > output.log
-    #       echo "Output of the C test:"
-    #       cat output.log  # Логируем вывод программы
-    #       # Проверяем вывод
-    #       if ! grep -q "* 2" output.log; then
-    #         echo "Test failed: Expected '* 2' in output"
-    #         exit 1
-    #       fi
-    #       if ! grep -q "1 2 * 1
-    #                     * 2 1 1
-    #                     2 2 2 1
-    #                     1 * 2 *" output.log; then
-    #         echo "Test failed: Expected "1 2 * 1
-    #                                      * 2 1 1
-    #                                      2 2 2 1
-    #                                      1 * 2 *" in output"
-    #         exit 1
-    #       fi
+    - name: Run C tests
+      run: |
+          cd check_tests
+          ./check_test_on_c_lang > output.log
+          echo "Output of the C test:"
+          cat output.log  # Логируем вывод программы
+          # Проверяем вывод
+          if ! grep -q "YES" output.log; then
+            echo "Test failed: Expected 'YES' in output"
+            exit 1
+          fi
+          if ! grep -q "NO" output.log; then
+            echo "Test failed: Expected 'NO' in output"
+            exit 1
+          fi
+          ./tmp_check > output.log
+          echo "Output of the C test:"
+          cat output.log  # Логируем вывод программы
+          # Проверяем вывод
+          if ! grep -q "* 2" output.log; then
+            echo "Test failed: Expected '* 2' in output"
+            exit 1
+          fi
+          if ! grep -q "1 2 * 1
+                        * 2 1 1
+                        2 2 2 1
+                        1 * 2 *" output.log; then
+            echo "Test failed: Expected "1 2 * 1
+                                         * 2 1 1
+                                         2 2 2 1
+                                         1 * 2 *" in output"
+            exit 1
+          fi
