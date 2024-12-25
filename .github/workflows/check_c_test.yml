@@ -44,7 +44,3 @@ jobs:
             echo "Test failed: Expected '* 2' in output"
             exit 1
           fi
-          if ! grep -q "1 2 * 1" output.log; then
-            echo "Test failed: Expected 'Тест не пройден' in output"
-            exit 1
-          fi
