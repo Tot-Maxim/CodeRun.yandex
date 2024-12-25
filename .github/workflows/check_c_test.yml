@@ -48,9 +48,6 @@ jobs:
                         * 2 1 1
                         2 2 2 1
                         1 * 2 *" output.log; then
-            echo "Test failed: Expected "1 2 * 1
-                                         * 2 1 1
-                                         2 2 2 1
-                                         1 * 2 *" in output"
+            echo "Test failed: Expected 'Тест не пройден' in output"
             exit 1
           fi
