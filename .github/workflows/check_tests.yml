@@ -21,5 +21,22 @@ jobs:
 
     - name: Run tests
       run: |
-        cd chek_test/
+        cd check_tests/
         python3 check_test.py
+    - name: Install GCC
+      run: sudo apt-get install -y gcc
+  
+    - name: Compile C code
+      run: |
+          gcc -o check_test/check_test_on_c_lang check_tests/check_test_on_c.c -I tasks/ tasks/monotonic_list.c
+  
+    - name: Run C tests
+      run: |
+  
+          cd check_test
+          ./check_test_on_c_lang > output.log
+          # Пример проверки выхода:
+          if ! grep -q "Expected output" output.log; then
+            echo "Test failed"
+            exit 1
+          fi

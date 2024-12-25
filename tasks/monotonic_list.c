@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "monotonic.h"
 
-int main() {
-    char input[1000]; // Предполагаем, что строка не будет длинее 1000 символов
+
+void process_input() {
+    char input[1000]; // Предполагаем, что строка не будет длиннее 1000 символов
     int *arr = NULL;
     int n = 0;
+
     while (1) {
         if (fgets(input, sizeof(input), stdin) == NULL) {
             break; // Если достигнут конец файла или произошла ошибка, выходим из цикла
@@ -26,7 +29,7 @@ int main() {
             arr = (int *)realloc(arr, (n + 1) * sizeof(int));
             if (arr == NULL) {
                 fprintf(stderr, "Ошибка выделения памяти\n");
-                return 1;
+                return;
             }
             arr[n] = atoi(token);
             token = strtok(NULL, " ");
@@ -52,5 +55,5 @@ int main() {
         free(arr);
         arr = NULL;
     }
-        return 0;
 }
+
