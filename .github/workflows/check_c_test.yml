@@ -35,10 +35,6 @@ jobs:
             echo "Test failed: Expected 'NO' in output"
             exit 1
           fi
-          ./tmp_check > output.log
-          echo "Output of the C test:"
-          cat output.log  # Логируем вывод программы
-          # Проверяем вывод
           if ! grep -q "* 2" output.log; then
             echo "Test failed: Expected '* 2' in output"
             exit 1
