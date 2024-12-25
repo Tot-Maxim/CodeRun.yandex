@@ -32,11 +32,16 @@ jobs:
   
     - name: Run C tests
       run: |
-  
           cd check_tests
           ./check_test_on_c_lang > output.log
-          # Пример проверки выхода:
-          if ! grep -q "Expected output" output.log; then
-            echo "Test failed"
+          echo "Output of the C test:"
+          cat output.log  # Логируем вывод программы
+          # Проверяем вывод
+          if ! grep -q "YES" output.log; then
+            echo "Test failed: Expected 'YES' in output"
+            exit 1
+          fi
+          if ! grep -q "NO" output.log; then
+            echo "Test failed: Expected 'NO' in output"
             exit 1
           fi
