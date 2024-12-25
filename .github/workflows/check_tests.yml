@@ -33,7 +33,7 @@ jobs:
     - name: Run C tests
       run: |
   
-          cd check_test
+          cd check_tests
           ./check_test_on_c_lang > output.log
           # Пример проверки выхода:
           if ! grep -q "Expected output" output.log; then
